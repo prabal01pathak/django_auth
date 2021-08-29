@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link href="{% static 'newyear/login.css' %}" rel='stylesheet'>
+{% block title %} Login Page {% endblock %}
+{% endblock %}
+
+{% block content %}
+<main id="main">
+<section></section>
+</main>
+<form action="" method='post'>{% csrf_token %}
+	{{form}}
+	<input type='Submit' value='Login'>
+</form>
+<p>Forget Password?<a href="{% url 'hello:reset' %}">Reset Password</a></p>
+<h1>or</h1>
+<label>Create Account - 
+	<a href="{% url 'hello:add-name' %}" >Register</a></label>
+{% endblock %}

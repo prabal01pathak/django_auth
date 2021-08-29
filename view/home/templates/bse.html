@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+    <head>
+        <title>{% block title %}{{section.title}}{% endblock %}</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="{% url 'hello:home' %}" >Home</a></li>  
+                <li><a href="{% url 'hello:login' %}">Login</a></li>
+                <li><a href="{% url 'hello:add-name' %}"> Register</a></li>
+            </ul>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

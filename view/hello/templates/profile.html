@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Account {% endblock %}
+{% block content %}
+<a href="{% url 'hello:logout' %}" >Logout</a>
+<form method='post'>{% csrf_token %}
+    {% if user.is_auth %}
+    <label> Email: </label>
+    {{user.Email}}
+    <label> Mobile: </label>
+    {{user.Mobile}}
+    <p>Personal Detail</p>
+    <label> First Name: </label>
+    {{form.First_name}}
+    <label> Last Name: </label>
+    {{form.Last_name}}
+    {% endif %}
+    <input type='submit' value='Save'>
+</form>
+{% endblock %}

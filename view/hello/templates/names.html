@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block content %}
+	<div class='flex-container'>
+			<ul>
+		{% if user.is_auth %}
+			<li><a href="{% url 'hello:account' %}">{{user.First_name}}</a></li>
+			<li><a href="{% url 'hello:logout' %}">Logout</a></li>
+		{% else %}
+			<li><a href="{% url 'hello:add-name' %}">Register</a>
+			</li>
+			<li>
+			<a href="{% url 'hello:login' %}">Login</a>
+			</li>
+		{% endif %}
+			</ul>
+	</div>
+	<select>
+	    <option value='Black'>Black</option>
+	    <option value='blue'>Blue</option>
+	    <option value='red'>Red</option>
+	    <option value='green'>Green</option>
+	</select>
+	{% for f_name,l_name in name %}
+		<h1>Hello , {{f_name}} {{l_name}} </h1>
+	{% endfor %}
+	<script>
+		//document.addEventListener('DOMContentLoaded',function() {
+		//		document.querySelecter('form').onsubmit = function() {
+		//					const name = document.querySelector('#name').value;
+		//					alert(`Hello ${name}`);
+		//				}
+		//	});
+		
+		document.addEventListener('DOMContentLoaded',function() {
+				document.querySelector('select').onchange = function() {
+					let headings=document.querySelectorAll('h1')
+					for(i=0;i<headings.length;i++){
+						headings[i].style.color = this.value;
+							}
+						}
+				});
+			
+	</script>
+
+{% endblock %}

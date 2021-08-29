@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Register {% endblock %}
+{% block content %}
+<form enctype='multipart/form-data'  action="{% url 'hello:add-name' %}" method="post">{% csrf_token %}
+	{{forms}}
+	<input type='Submit'>
+</form>
+<div><h1>or</h1>
+<a href="{% url 'hello:login' %}" >Login</a>
+</div>
+{% endblock %}
